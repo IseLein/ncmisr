@@ -1,30 +1,59 @@
 ---
 import { Image } from "astro:assets";
 import logoImg from "../assets/ncmisr.svg";
+
+export interface Props {
+	isHomePage?: boolean;
+}
+
+const { isHomePage = false } = Astro.props;
 ---
 
-<header>
-	<a href="/" class="logo">
-		<Image src={logoImg} alt="NCMISR Logo" loading="eager" />
-	</a>
+<header class={isHomePage ? 'home-page' : 'content-page'}>
+	<div class="container">
+		<a href="/" class="logo">
+			<Image src={logoImg} alt="NCMISR Logo" loading="eager" />
+		</a>
+	</div>
 </header>
 <style>
 	header {
+		position: relative;
+		z-index: 2;
 		margin: 0;
-		padding: 0 1em;
+		padding: 1em 0;
+		background: transparent;
 	}
+	
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+	
 	.logo {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 	.logo img {
-		height: 100px;
+		height: 70px;
 		width: auto;
+		filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+	}
+	
+	/* Home page: cream logo for dark green background */
+	.home-page .logo img {
+		filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3)) brightness(0) saturate(100%) invert(95%) sepia(15%) saturate(231%) hue-rotate(350deg) brightness(103%) contrast(98%);
+	}
+	
+	/* Content pages: dark brown logo for cream background */
+	.content-page .logo img {
+		filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)) brightness(0) saturate(100%) invert(16%) sepia(18%) saturate(1015%) hue-rotate(350deg) brightness(92%) contrast(97%);
 	}
 	@media (min-width: 720px) {
 	    .logo img {
-	    	height: 120px;
+	    	height: 90px;
 		}
 	}
 </style>

@@ -1,8 +1,11 @@
 ---
-title: 'Markdown Style Guide'
+title: 'The Heart of the Scientist'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jun 19 2024'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/BERCKHEYDE1.png'
+heroAlt: 'BERCKHEYDE, Job Adriaensz - Interior of the St Bavo Church at Haarlem'
+scientist: 'The man who knew infinity'
+tool: 'Touch grass more effectively'
 ---
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
