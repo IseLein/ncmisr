@@ -2,7 +2,7 @@
 title: 'Third post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 22 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: '../../assets/BEAUFORT1.png'
 heroAlt: 'A scientist'
 scientist: 'The man who knew infinity'
 tool: 'Touch grass more effectively'

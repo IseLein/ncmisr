@@ -1,0 +1,46 @@
+---
+export interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={`vine-border ${className || ''}`}>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50">
+		<path d="M20,30 Q70,15 120,25 Q170,35 220,20 Q250,15 260,25" stroke="var(--fg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+		<circle cx="45" cy="20" r="2.5" fill="#388e3c"/>
+		<path d="M42,17 Q45,12 48,17" stroke="#388e3c" stroke-width="1.5" fill="none"/>
+		<circle cx="95" cy="28" r="2" fill="#2e7d32"/>
+		<path d="M93,26 Q95,22 97,26" stroke="#2e7d32" stroke-width="1.5" fill="none"/>
+		<circle cx="145" cy="32" r="2.5" fill="#388e3c"/>
+		<path d="M142,29 Q145,24 148,29" stroke="#388e3c" stroke-width="1.5" fill="none"/>
+		<circle cx="195" cy="22" r="2" fill="#4caf50"/>
+		<path d="M193,20 Q195,16 197,20" stroke="#4caf50" stroke-width="1.5" fill="none"/>
+		<circle cx="235" cy="18" r="2" fill="#2e7d32"/>
+		<path d="M233,16 Q235,12 237,16" stroke="#2e7d32" stroke-width="1.5" fill="none"/>
+		<circle cx="75" cy="22" r="1.5" fill="#4caf50"/>
+		<circle cx="165" cy="26" r="1.5" fill="#388e3c"/>
+	</svg>
+</div>
+
+<style>
+	.vine-border {
+		display: flex;
+		justify-content: center;
+		margin: 2rem 0;
+	}
+
+	.vine-border svg {
+		width: 280px;
+		height: 50px;
+		max-width: 100%;
+	}
+
+	@media (max-width: 480px) {
+		.vine-border svg {
+			width: 240px;
+			height: 43px;
+		}
+	}
+</style>

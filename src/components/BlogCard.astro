@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import FormattedDate from './FormattedDate.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	heroImage?: ImageMetadata;
+	slug: string;
+	scientist?: string;
+	tool?: string;
+}
+
+const { title, description, pubDate, heroImage, slug, scientist, tool } = Astro.props;
+
+// Truncate description to around 120 characters
+const truncatedDescription = description.length > 120 
+	? description.substring(0, 120).trim() + '...'
+	: description;
+---
+
+<article class="blog-card">
+	<a href={`/blog/${slug}/`} class="card-link">
+		{heroImage && (
+			<div class="card-image">
+				<Image src={heroImage} alt={title} loading="eager" />
+			</div>
+		)}
+		<div class="card-content">
+			<h3 class="card-title">{title}</h3>
+			<p class="card-description">{truncatedDescription}</p>
+			{(scientist || tool) && (
+				<div class="card-included">
+					<span class="included-label">Included:</span>
+					{scientist && <span class="included-item">{scientist}</span>}
+					{tool && <span class="included-item">{tool}</span>}
+				</div>
+			)}
+			<div class="card-meta">
+				<FormattedDate date={pubDate} />
+			</div>
+		</div>
+	</a>
+</article>
+
+<style>
+	.blog-card {
+		border: 1px solid var(--fg);
+		overflow: hidden;
+		transition: transform 0.2s ease;
+		height: fit-content;
+	}
+
+	.blog-card:hover {
+		transform: scale(1.01);
+	}
+
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		height: 100%;
+	}
+
+	.card-image {
+		width: 100%;
+		aspect-ratio: 4/3;
+		overflow: hidden;
+	}
+
+	.card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 0;
+	}
+
+	.card-content {
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.card-title {
+		font-size: 1.5rem;
+		margin: 0;
+		line-height: 1.3;
+	}
+
+	.card-description {
+		font-size: 1.1rem;
+		line-height: 1.5;
+		margin: 0;
+		opacity: 0.85;
+		flex-grow: 1;
+	}
+
+	.card-included {
+		line-height: 1.4;
+		border-top: 1px solid var(--fg);
+		padding-top: 0.5rem;
+	}
+
+	.included-label {
+		opacity: 0.85;
+		font-style: italic;
+	}
+
+	.included-item {
+		display: block;
+		font-size: 1.2rem;
+	}
+
+	.card-meta {
+		font-size: 0.85rem;
+		color: var(--fg);
+		opacity: 0.6;
+		margin-top: auto;
+	}
+
+	@media (min-width: 768px) {
+		.card-content {
+			padding: 0.875rem;
+		}
+		
+		.card-title {
+			font-size: 1.7rem;
+		}
+		
+		.card-description {
+			font-size: 1.2rem;
+		}
+
+		.included-item {
+			font-size: 1.4rem;
+		}
+
+		.card-meta {
+			font-size: 1rem;
+		}
+
+	}
+</style>

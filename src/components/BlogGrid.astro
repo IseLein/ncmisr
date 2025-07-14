@@ -1,0 +1,74 @@
+---
+import BlogCard from './BlogCard.astro';
+
+export interface Props {
+	posts: any[];
+	title: string;
+}
+
+const { posts, title } = Astro.props;
+---
+
+<section>
+	<h2 class="grid-title">{title}</h2>
+	<div class="blog-grid">
+		{posts.map((post) => (
+			<BlogCard
+				title={post.data.title}
+				description={post.data.description}
+				pubDate={post.data.pubDate}
+				heroImage={post.data.heroImage}
+				slug={post.id}
+				scientist={post.data.scientist}
+				tool={post.data.tool}
+			/>
+		))}
+	</div>
+</section>
+
+<style>
+	.grid-title {
+		font-size: 3rem;
+		font-weight: 600;
+		margin-bottom: 2rem;
+		color: var(--fg);
+		text-align: center;
+	}
+
+	.blog-grid {
+		display: grid;
+		gap: 1.5rem;
+		grid-template-columns: 1fr;
+	}
+
+	/* Tablet - 2 columns */
+	@media (min-width: 768px) {
+		.blog-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem;
+		}
+	}
+
+	/* Laptop - 3 columns */
+	@media (min-width: 1024px) {
+		.blog-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	/* Wide screens - 4 columns max */
+	@media (min-width: 1200px) {
+		.blog-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	/* Ensure grid doesn't get too wide on very large screens */
+	@media (min-width: 1400px) {
+		.blog-grid-section {
+			max-width: 1400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+</style>

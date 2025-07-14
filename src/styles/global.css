@@ -7,8 +7,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -21,8 +19,10 @@
 	/* Site color scheme */
 	--cream: #f5f5dc;
 	--dark-brown: #3e2723;
+	--dark-green: #102b10;
 	--fg: var(--dark-brown);
 	--bg: var(--cream);
+	--accent: var(--dark-green);
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -147,6 +147,64 @@ hr {
 	}
 	main {
 		padding: 1em;
+	}
+}
+
+.main-quote {
+	position: relative;
+	margin: 1em 0.9em 2em 0.9em;
+	width: fit-content;
+}
+
+@media (min-width: 768px) {
+	.main-quote {
+		margin: 1em auto 3em auto;
+	}
+}
+
+.main-quote::before {
+	content: '“';
+	font-size: 2.3em;
+	opacity: 0.3;
+	position: absolute;
+	left: -0.5em;
+	top: -0.3em;
+}
+
+.home-main {
+	padding: 3em 1em;
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+.vine-border-wrapper {
+	margin: 5rem 0;
+}
+
+@media (min-width: 768px) {
+	.home-main {
+		padding: 3em 2em;
+	}
+	.vine-border-wrapper {
+		margin: 8rem 0;
+	}
+}
+
+@media (min-width: 1024px) {
+	.home-main {
+		padding: 3em 3em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.home-main {
+		padding: 3em 4em;
+	}
+}
+
+@media (min-width: 1400px) {
+	.home-main {
+		padding: 3em 5em;
 	}
 }
 

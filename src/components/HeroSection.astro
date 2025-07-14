@@ -64,13 +64,39 @@ const { title, description, pubDate, heroImage, slug, scientist, tool } = Astro.
 		position: relative;
 		z-index: 2;
 		width: 100%;
-		padding: 2rem 0 8rem 0;
+		padding: 2rem 1rem 8rem 1rem;
+		max-width: 1600px;
+		margin: 0 auto;
 	}
 	
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0;
+	}
+
+	@media (min-width: 768px) {
+		.hero-content {
+			padding: 2rem 2rem 8rem 2rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.hero-content {
+			padding: 2rem 3rem 8rem 3rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.hero-content {
+			padding: 2rem 4rem 8rem 4rem;
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.hero-content {
+			padding: 2rem 5rem 8rem 5rem;
+		}
 	}
 	
 	.hero-grid {
