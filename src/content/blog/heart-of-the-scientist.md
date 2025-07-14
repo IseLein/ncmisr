@@ -2,7 +2,7 @@
 title: 'The Heart of the Scientist: Searching, Seeking, Finding'
 description: 'The unchartered territory of novel scientific research might just be the tool that draws the scientist closer to true religion.'
 pubDate: 'Jun 19 2024'
-heroImage: '../../assets/BERCKHEYDE1.png'
+heroImage: ../../assets/BERCKHEYDE1.png
 heroAlt: 'Interior of the St Bavo Church at Haarlem - BERCKHEYDE, Job Adriaensz'
 scientist: 'The Bamboozled Doctor'
 tool: Now you see me, now you don't

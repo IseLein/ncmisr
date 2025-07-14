@@ -2,7 +2,7 @@
 title: 'Second post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 15 2022'
-heroImage: '../../assets/ANTOLINEZ2.png'
+heroImage: ../../assets/ANTOLINEZ2.png
 heroAlt: 'A scientist'
 scientist: 'The man who knew infinity'
 tool: 'Touch grass more effectively'
