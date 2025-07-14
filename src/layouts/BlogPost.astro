@@ -8,51 +8,12 @@ import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroAlt } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -60,10 +21,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt={heroAlt || title} />}
 				</div>
 				<div class="prose">
 					<div class="title">
+						<h1>{title}</h1>
+						<p class="description">{description}</p>
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{
@@ -74,7 +37,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 								)
 							}
 						</div>
-						<h1>{title}</h1>
 						<hr />
 					</div>
 					<slot />
@@ -84,3 +46,124 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Footer />
 	</body>
 </html>
+<style>
+	main {
+		width: calc(100% - 2em);
+		max-width: 100%;
+		margin: 0;
+	}
+	.hero-image {
+		width: 100%;
+	}
+	.hero-image img {
+		display: block;
+		margin: 0 auto;
+		border-radius: 12px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	}
+	.prose {
+		width: 800px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1em;
+		color: var(--fg);
+		font-family: 'Crimson Text', serif;
+		line-height: 1.7;
+	}
+	.title {
+		padding: 1rem 0;
+		text-align: center;
+	}
+	.title h1 {
+		font-family: 'Playfair Display', serif;
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--fg);
+		margin: 0 0 1rem 0;
+		line-height: 1.3;
+		border: none;
+	}
+	.description {
+		font-size: 1.3rem;
+		color: var(--fg);
+		margin-bottom: 1.5rem;
+		font-style: italic;
+		opacity: 0.9;
+		line-height: 1.6;
+	}
+	.date {
+		margin-bottom: 0.5rem;
+		color: var(--accent);
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
+	.last-updated-on {
+		font-style: italic;
+		color: var(--accent);
+		opacity: 0.8;
+	}
+	
+	/* Enhanced content typography */
+	.prose :global(h1) {
+		font-family: 'Playfair Display', serif;
+		font-size: 2.2rem;
+		font-weight: 700;
+		color: var(--accent);
+		margin: 3rem 0 1.5rem 0;
+		text-align: center;
+		border-bottom: 1px solid var(--accent);
+		padding-bottom: 0.5rem;
+	}
+	
+	.prose :global(h2) {
+		font-family: 'Playfair Display', serif;
+		font-size: 1.8rem;
+		font-weight: 600;
+		color: var(--accent);
+		margin: 2.5rem 0 1rem 0;
+	}
+	
+	.prose :global(p) {
+		font-size: 1.4rem;
+		margin-bottom: 1.5rem;
+	}
+	
+	.prose :global(blockquote) {
+		font-style: italic;
+		font-size: 1.25rem;
+		color: var(--accent);
+		background: rgba(16, 43, 16, 0.05);
+		border-left: 4px solid var(--accent);
+		padding: 1rem 1.5rem;
+		margin: 2rem 0;
+		border-radius: 0 8px 8px 0;
+	}
+
+	.prose :global(blockquote p) {
+		margin: 0;
+	}
+	
+	.prose :global(hr) {
+		border: none;
+		border-top: 2px solid var(--accent);
+		margin: 1rem 0;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	@media (max-width: 768px) {
+		.title h1 {
+			font-size: 2rem;
+		}
+		.description {
+			font-size: 1.3rem;
+		}
+		.prose :global(h1) {
+			font-size: 1.8rem;
+		}
+		.prose :global(p) {
+			font-size: 1.2rem;
+		}
+	}
+</style>
