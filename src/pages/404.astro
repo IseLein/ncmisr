@@ -1,0 +1,114 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`404 - ${SITE_TITLE}`} description="Page not found" />
+	</head>
+	<body class="error-body">
+		<Header />
+		<main class="error-page">
+			<div class="error-content">
+				<h1 class="error-number">404</h1>
+				<h2 class="error-message">Page not found</h2>
+				<p class="error-description">
+					The page you're looking for doesn't exist. <a href="/" class="home-link">Return home</a>
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.error-body {
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		background: var(--bg);
+	}
+
+	.error-page {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+
+	.error-content {
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.error-number {
+		font-family: 'Playfair Display', serif;
+		font-size: 12rem;
+		font-weight: 700;
+		color: var(--accent);
+		margin: 0;
+		line-height: 1;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.error-message {
+		font-family: 'Playfair Display', serif;
+		font-size: 2.5rem;
+		font-weight: 600;
+		color: var(--fg);
+		margin: 1rem 0;
+		line-height: 1.2;
+	}
+
+	.error-description {
+		font-family: 'Crimson Text', serif;
+		font-size: 1.3rem;
+		color: var(--fg);
+		margin: 1.5rem 0 2rem 0;
+		opacity: 0.8;
+		line-height: 1.6;
+	}
+
+	.home-link {
+		color: var(--fg);
+		opacity: 0.8;
+		text-decoration: underline;
+		font-weight: 600;
+		transition: color 0.2s ease;
+	}
+
+	.home-link:hover {
+		color: var(--fg);
+	}
+
+	@media (max-width: 768px) {
+		.error-number {
+			font-size: 8rem;
+		}
+		
+		.error-message {
+			font-size: 2rem;
+		}
+		
+		.error-description {
+			font-size: 1.1rem;
+		}
+		
+	}
+
+	@media (max-width: 480px) {
+		.error-number {
+			font-size: 6rem;
+		}
+		
+		.error-message {
+			font-size: 1.8rem;
+		}
+	}
+</style>
