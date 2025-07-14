@@ -4,7 +4,71 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+/* Playfair Display Font */
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/playfair-display-v39-latin/playfair-display-v39-latin-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/playfair-display-v39-latin/playfair-display-v39-latin-italic.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/playfair-display-v39-latin/playfair-display-v39-latin-500.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/playfair-display-v39-latin/playfair-display-v39-latin-600.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/fonts/playfair-display-v39-latin/playfair-display-v39-latin-700.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Crimson Text Font */
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('/fonts/crimson-text-v19-latin/crimson-text-v19-latin-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('/fonts/crimson-text-v19-latin/crimson-text-v19-latin-italic.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Crimson Text';
+	src: url('/fonts/crimson-text-v19-latin/crimson-text-v19-latin-600.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
 
 :root {
 	--black: 15, 18, 25;
