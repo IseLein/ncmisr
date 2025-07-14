@@ -5,7 +5,7 @@ pubDate: 'Jun 19 2024'
 heroImage: '../../assets/BERCKHEYDE1.png'
 heroAlt: 'Interior of the St Bavo Church at Haarlem - BERCKHEYDE, Job Adriaensz'
 scientist: 'The Bamboozled Doctor'
-tool: Now you see me, now you don\'t
+tool: Now you see me, now you don't
 ---
 
 
